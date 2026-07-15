@@ -1,104 +1,823 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- ============================= META / SEO ============================= -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dalal Finserve Private Limited | RBI Registered NBFC</title>
-<meta name="description" content="Dalal Finserve Private Limited - RBI Registered NBFC">
+<meta name="description" content="Dalal Finserve Private Limited is a Reserve Bank of India registered Non-Banking Financial Company (CoR No. 13.01003) committed to governance, compliance and responsible growth.">
+<meta name="keywords" content="Dalal Finserve, RBI registered NBFC, non-banking financial company, Mumbai NBFC, CIN U67120MH1995PTC087637">
+<meta name="theme-color" content="#050816">
+<link rel="canonical" href="./index.html">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dalal Finserve Private Limited | RBI Registered NBFC">
+<meta property="og:description" content="Trusted capital. Sustainable growth. An RBI registered NBFC built on governance, transparency and regulatory compliance.">
+<meta property="og:site_name" content="Dalal Finserve Private Limited">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Dalal Finserve Private Limited | RBI Registered NBFC">
+<meta name="twitter:description" content="An RBI registered NBFC committed to governance, compliance and responsible growth.">
+
+<!-- Favicon: inline monogram, no external asset needed -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23050816'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-weight='700' font-size='28' fill='%233b82f6' text-anchor='middle'%3EDF%3C/text%3E%3C/svg%3E">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+
+<!-- Tailwind (CDN, per spec) -->
 <script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+          display: ['Manrope', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        },
+        colors: {
+          ink: { DEFAULT: '#050816', 2: '#080c1f', 3: '#0d1330' },
+          brand: { blue: '#3b82f6', teal: '#14b8a6', gold: '#d4af37' },
+        },
+        boxShadow: {
+          premium: '0 20px 60px -15px rgba(2,6,23,0.6)',
+          glow: '0 0 60px -10px rgba(59,130,246,0.35)',
+        },
+        keyframes: {
+          floatY: { '0%,100%': { transform: 'translateY(0px)' }, '50%': { transform: 'translateY(-14px)' } },
+          marquee: { '0%': { transform: 'translateX(0)' }, '100%': { transform: 'translateX(-50%)' } },
+        },
+        animation: {
+          floatY: 'floatY 6s ease-in-out infinite',
+          marquee: 'marquee 32s linear infinite',
+        },
+      },
+    },
+  };
+</script>
+
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js" defer></script>
+
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+<!-- Lenis smooth scroll -->
+<script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js" defer></script>
+
 <style>
-body{background:#050816;color:#fff}
-.aurora{position:fixed;inset:0;background:
-radial-gradient(circle at 20% 20%,rgba(37,99,235,.25),transparent 35%),
-radial-gradient(circle at 80% 30%,rgba(20,184,166,.20),transparent 35%),
-radial-gradient(circle at 50% 80%,rgba(201,162,39,.10),transparent 30%);filter:blur(40px);z-index:-1}
-.glass{background:rgba(255,255,255,.06);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08)}
+  html { scroll-behavior: auto; } /* Lenis takes over smooth scrolling in JS */
+  body { background: #050816; color: #e6e9f5; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+  h1, h2, h3, .font-display { font-family: 'Manrope', sans-serif; }
+
+  /* Aurora background blobs */
+  .aurora { position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background:
+      radial-gradient(circle at 15% 15%, rgba(59,130,246,0.22), transparent 38%),
+      radial-gradient(circle at 85% 25%, rgba(20,184,166,0.18), transparent 38%),
+      radial-gradient(circle at 50% 85%, rgba(212,175,55,0.12), transparent 32%);
+    filter: blur(60px);
+  }
+
+  /* Glassmorphism */
+  .glass { background: rgba(255,255,255,0.045); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(255,255,255,0.08); }
+  .glass-strong { background: rgba(255,255,255,0.07); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border: 1px solid rgba(255,255,255,0.12); }
+
+  /* Gradient text */
+  .grad-text { background: linear-gradient(90deg, #3b82f6, #14b8a6 60%, #d4af37); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+  /* Buttons */
+  .btn-primary { background: linear-gradient(90deg, #3b82f6, #14b8a6); transition: transform .35s ease, box-shadow .35s ease, background-position .5s ease; background-size: 160% 100%; }
+  .btn-primary:hover { background-position: 100% 0; box-shadow: 0 12px 40px -8px rgba(59,130,246,0.55); transform: translateY(-2px); }
+  .btn-secondary { transition: all .3s ease; }
+  .btn-secondary:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.25); transform: translateY(-2px); }
+
+  /* Cards */
+  .card-hover { transition: transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease, border-color .4s ease; }
+  .card-hover:hover { transform: translateY(-8px); box-shadow: 0 24px 60px -16px rgba(2,6,23,0.7); border-color: rgba(255,255,255,0.2); }
+
+  /* Reveal defaults (visible without JS; GSAP animates FROM this via .from()) */
+  .reveal { opacity: 1; }
+
+  /* Marquee track */
+  .marquee-track { display: flex; width: max-content; }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar { width: 10px; }
+  ::-webkit-scrollbar-track { background: #050816; }
+  ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 10px; }
+
+  /* Focus visibility for a11y */
+  a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid #3b82f6; outline-offset: 3px; border-radius: 4px; }
+
+  /* Skip link */
+  .skip-link { position: absolute; left: -9999px; top: 0; z-index: 100; }
+  .skip-link:focus { left: 1rem; top: 1rem; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-floatY, .animate-marquee { animation: none !important; }
+  }
 </style>
 </head>
-<body>
-<div class="aurora"></div>
 
-<nav class="fixed top-0 w-full bg-black/20 backdrop-blur border-b border-white/10 z-50">
-<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between">
-<div class="font-bold">Dalal Finserve</div>
-<div class="space-x-4">
-<a href="#about">About</a>
-<a href="#compliance">Compliance</a>
-<a href="#contact">Contact</a>
-</div>
-</div>
-</nav>
+<body class="bg-ink text-slate-100 antialiased">
 
-<section class="min-h-screen flex items-center">
-<div class="max-w-7xl mx-auto px-6">
-<div class="glass inline-block px-4 py-2 rounded-full mb-6">RBI Registered NBFC • CoR No. 13.01003</div>
-<h1 class="text-6xl md:text-8xl font-bold">Trusted Capital.<br>Sustainable Growth.</h1>
-<p class="mt-6 text-slate-300 max-w-3xl text-xl">Dalal Finserve Private Limited is a Reserve Bank of India registered Non‑Banking Financial Company committed to governance, compliance and responsible growth.</p>
-</div>
+<!-- Skip link for keyboard users -->
+<a href="#main" class="skip-link glass px-4 py-2 rounded-lg text-sm">Skip to main content</a>
+
+<!-- Fixed aurora backdrop -->
+<div class="aurora" aria-hidden="true"></div>
+
+<!-- ============================= NAVIGATION ============================= -->
+<header>
+  <nav id="navbar" aria-label="Primary" class="fixed top-0 inset-x-0 z-50 transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="#top" class="flex items-center gap-2.5 shrink-0" aria-label="Dalal Finserve home">
+          <span class="h-9 w-9 rounded-xl bg-gradient-to-br from-brand-blue to-brand-teal flex items-center justify-center font-display font-800 text-sm">DF</span>
+          <span class="leading-tight">
+            <span class="block font-display font-700 text-white text-base">Dalal Finserve</span>
+            <span class="block text-[11px] text-slate-400 tracking-wide -mt-0.5">Private Limited</span>
+          </span>
+        </a>
+
+        <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
+          <a href="#about" class="nav-link relative py-2">About</a>
+          <a href="#compliance" class="nav-link relative py-2">Compliance</a>
+          <a href="#regulatory" class="nav-link relative py-2">Regulatory Info</a>
+          <a href="#policies" class="nav-link relative py-2">Policies</a>
+        </div>
+
+        <div class="hidden lg:flex items-center">
+          <a href="#contact" class="btn-primary text-white text-sm font-semibold px-5 py-2.5 rounded-full inline-flex items-center gap-2">
+            Get in Touch <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button id="menuBtn" type="button" class="lg:hidden p-2 rounded-lg glass" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <i data-lucide="menu" class="w-5 h-5" id="menuIconOpen"></i>
+          <i data-lucide="x" class="w-5 h-5 hidden" id="menuIconClose"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu panel -->
+    <div id="mobileMenu" class="lg:hidden hidden glass-strong mx-4 mt-2 rounded-2xl px-6 py-6 space-y-4 text-slate-200">
+      <a href="#about" class="block py-1">About</a>
+      <a href="#compliance" class="block py-1">Compliance</a>
+      <a href="#regulatory" class="block py-1">Regulatory Info</a>
+      <a href="#policies" class="block py-1">Policies</a>
+      <a href="#contact" class="btn-primary block text-center text-white font-semibold px-5 py-3 rounded-full mt-2">Get in Touch</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ============================= HERO SECTION ============================= -->
+<section class="relative min-h-screen flex flex-col justify-center pt-28 pb-10 overflow-hidden" aria-labelledby="hero-heading">
+  <!-- Floating gradient blobs (decorative) -->
+  <div aria-hidden="true" class="pointer-events-none absolute -top-24 -left-24 w-96 h-96 rounded-full bg-brand-blue/25 blur-[100px] animate-floatY"></div>
+  <div aria-hidden="true" class="pointer-events-none absolute top-1/3 -right-24 w-[28rem] h-[28rem] rounded-full bg-brand-teal/20 blur-[110px] animate-floatY" style="animation-delay:1.2s"></div>
+  <div aria-hidden="true" class="pointer-events-none absolute bottom-0 left-1/3 w-72 h-72 rounded-full bg-brand-gold/10 blur-[100px] animate-floatY" style="animation-delay:2s"></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 w-full grid lg:grid-cols-2 gap-16 items-center">
+    <!-- Left: copy -->
+    <div>
+      <div class="reveal hero-badge glass inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium text-slate-200 mb-8">
+        <i data-lucide="shield-check" class="w-3.5 h-3.5 text-brand-teal"></i>
+        RBI Registered NBFC &middot; CoR No. 13.01003
+      </div>
+
+      <h1 id="hero-heading" class="reveal hero-title font-display font-800 text-5xl md:text-7xl leading-[1.05] tracking-tight text-white">
+        Trusted Capital.<br>
+        <span class="grad-text">Sustainable Growth.</span>
+      </h1>
+
+      <p class="reveal hero-sub mt-6 text-lg md:text-xl text-slate-400 max-w-xl leading-relaxed">
+        Dalal Finserve Private Limited is a Reserve Bank of India registered Non&#8209;Banking Financial Company committed to strong governance, full transparency and responsible, compliance&#8209;first growth.
+      </p>
+
+      <div class="reveal hero-cta mt-10 flex flex-wrap items-center gap-4">
+        <a href="#contact" class="magnetic btn-primary text-white font-semibold px-7 py-3.5 rounded-full inline-flex items-center gap-2 shadow-glow">
+          Get in Touch <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <a href="#regulatory" class="magnetic btn-secondary glass text-slate-200 font-semibold px-7 py-3.5 rounded-full inline-flex items-center gap-2">
+          View Regulatory Info
+        </a>
+      </div>
+
+      <!-- Inline quick stats -->
+      <div class="reveal hero-stats mt-12 grid grid-cols-3 max-w-md gap-6 border-t border-white/10 pt-6">
+        <div>
+          <div class="font-display font-800 text-2xl md:text-3xl text-white"><span class="counter" data-target="31">0</span>+</div>
+          <div class="text-xs text-slate-400 mt-1">Years of Standing</div>
+        </div>
+        <div>
+          <div class="font-display font-800 text-2xl md:text-3xl text-white"><span class="counter" data-target="100">0</span>%</div>
+          <div class="text-xs text-slate-400 mt-1">Compliance&#8209;Led</div>
+        </div>
+        <div>
+          <div class="font-display font-800 text-2xl md:text-3xl text-white"><span class="counter" data-target="5">0</span></div>
+          <div class="text-xs text-slate-400 mt-1">Governance Policies</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: illustrative dashboard mockup (decorative, not real financial data) -->
+    <div class="relative reveal hero-visual" aria-hidden="true">
+      <div class="relative mx-auto max-w-md">
+        <!-- Floating badge chips -->
+        <div class="absolute -top-6 -right-4 glass-strong rounded-2xl px-4 py-3 flex items-center gap-2 text-xs font-semibold text-slate-100 shadow-premium animate-floatY z-10">
+          <i data-lucide="badge-check" class="w-4 h-4 text-brand-teal"></i> RBI Registered
+        </div>
+        <div class="absolute -bottom-6 -left-6 glass-strong rounded-2xl px-4 py-3 flex items-center gap-2 text-xs font-semibold text-slate-100 shadow-premium animate-floatY z-10" style="animation-delay:1.5s">
+          <i data-lucide="file-check-2" class="w-4 h-4 text-brand-blue"></i> CIN Verified
+        </div>
+
+        <!-- Main dashboard card -->
+        <div class="glass-strong rounded-3xl p-6 shadow-premium">
+          <div class="flex items-center justify-between mb-6">
+            <div class="flex items-center gap-2">
+              <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+              <span class="text-sm font-semibold text-slate-100">Compliance Overview</span>
+            </div>
+            <i data-lucide="shield" class="w-4 h-4 text-slate-400"></i>
+          </div>
+
+          <!-- Animated line chart -->
+          <svg viewBox="0 0 300 100" class="w-full h-28" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#3b82f6"/>
+                <stop offset="100%" stop-color="#14b8a6"/>
+              </linearGradient>
+              <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.35"/>
+                <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <path d="M0,80 L40,65 L80,70 L120,45 L160,50 L200,28 L240,34 L300,10 L300,100 L0,100 Z" fill="url(#areaGrad)"/>
+            <path id="chartLine" d="M0,80 L40,65 L80,70 L120,45 L160,50 L200,28 L240,34 L300,10" fill="none" stroke="url(#lineGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="text-[11px] text-slate-400 mt-1">Governance &amp; disclosure score (illustrative)</div>
+
+          <div class="grid grid-cols-3 gap-3 mt-6">
+            <div class="glass rounded-xl p-3 text-center">
+              <i data-lucide="landmark" class="w-4 h-4 mx-auto text-brand-blue mb-1"></i>
+              <div class="text-[10px] text-slate-300 font-medium">RBI</div>
+            </div>
+            <div class="glass rounded-xl p-3 text-center">
+              <i data-lucide="scale" class="w-4 h-4 mx-auto text-brand-teal mb-1"></i>
+              <div class="text-[10px] text-slate-300 font-medium">MCA</div>
+            </div>
+            <div class="glass rounded-xl p-3 text-center">
+              <i data-lucide="file-text" class="w-4 h-4 mx-auto text-brand-gold mb-1"></i>
+              <div class="text-[10px] text-slate-300 font-medium">CIN</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="reveal absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-500" aria-hidden="true">
+    <span class="text-[10px] tracking-widest uppercase">Scroll</span>
+    <i data-lucide="chevron-down" class="w-4 h-4 animate-bounce"></i>
+  </div>
 </section>
 
-<section id="about" class="py-24">
-<div class="max-w-6xl mx-auto px-6">
-<h2 class="text-5xl font-bold mb-8">About Us</h2>
-<div class="glass rounded-3xl p-8">
-<p>Dalal Finserve Private Limited (CIN: U67120MH1995PTC087637) is an RBI registered NBFC. The Company is focused on maintaining high standards of governance, transparency and regulatory compliance while preparing for future growth opportunities.</p>
+<!-- Regulatory recognition marquee strip -->
+<div class="relative border-y border-white/5 bg-white/[0.02] py-6 overflow-hidden" aria-label="Regulatory recognition">
+  <div class="marquee-track animate-marquee">
+    <div class="flex items-center gap-14 pr-14">
+      <span class="flex items-center gap-2 text-slate-400 text-sm font-medium whitespace-nowrap"><i data-lucide="landmark" class="w-4 h-4"></i> Reserve Bank of India</span>
+      <span class="flex items-center gap-2 text-slate-400 text-sm font-medium whitespace-nowrap"><i data-lucide="building-2" class="w-4 h-4"></i> Ministry of Corporate Affairs</span>
+      <span class="flex items-center gap-2 text-slate-400 text-sm font-medium whitespace-nowrap"><i data-lucide="scroll-text" class="w-4 h-4"></i> Registrar of Companies</span>
+      <span class="flex items-center gap-2 text-slate-400 text-sm font-medium whitespace-nowrap"><i data-lucide="badge-check" class="w-4 h-4"></i> CIN Verified Entity</span>
+      <span class="flex items-center gap-2 text-slate-400 text-sm font-medium whitespace-nowrap"><i data-lucide="shield-check" class="w-4 h-4"></i> NBFC Compliant</span>
+    </div>
+    <div class="flex items-center gap-14 pr-14" aria-hidden="true">
+      <span class="flex items-center gap-2 text-slate-400 text-sm font-medium whitespace-nowrap"><i data-lucide="landmark" class="w-4 h-4"></i> Reserve Bank of India</span>
+      <span class="flex items-center gap-2 text-slate-400 text-sm font-medium whitespace-nowrap"><i data-lucide="building-2" class="w-4 h-4"></i> Ministry of Corporate Affairs</span>
+      <span class="flex items-center gap-2 text-slate-400 text-sm font-medium whitespace-nowrap"><i data-lucide="scroll-text" class="w-4 h-4"></i> Registrar of Companies</span>
+      <span class="flex items-center gap-2 text-slate-400 text-sm font-medium whitespace-nowrap"><i data-lucide="badge-check" class="w-4 h-4"></i> CIN Verified Entity</span>
+      <span class="flex items-center gap-2 text-slate-400 text-sm font-medium whitespace-nowrap"><i data-lucide="shield-check" class="w-4 h-4"></i> NBFC Compliant</span>
+    </div>
+  </div>
 </div>
-</div>
+
+<!-- ============================= ABOUT SECTION ============================= -->
+<section id="about" class="py-28 md:py-36 relative" aria-labelledby="about-heading">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 grid lg:grid-cols-5 gap-16 items-start">
+    <div class="lg:col-span-3 reveal-up">
+      <span class="text-brand-teal text-sm font-semibold tracking-wide uppercase">About Us</span>
+      <h2 id="about-heading" class="font-display font-800 text-4xl md:text-5xl text-white mt-4 mb-6 leading-tight">
+        Governance&#8209;first financial services
+      </h2>
+      <p class="text-slate-400 text-lg leading-relaxed mb-5">
+        Dalal Finserve Private Limited is a Reserve Bank of India registered Non&#8209;Banking Financial Company focused on maintaining the highest standards of governance, transparency and regulatory compliance.
+      </p>
+      <p class="text-slate-400 text-lg leading-relaxed">
+        Every decision we make is anchored in responsible practice &mdash; from statutory disclosures to grievance handling &mdash; as we prepare for sustainable, long&#8209;term growth opportunities.
+      </p>
+    </div>
+
+    <div class="lg:col-span-2 grid gap-5 reveal-up">
+      <div class="glass rounded-2xl p-6 card-hover flex items-center gap-4">
+        <div class="h-11 w-11 rounded-xl bg-brand-blue/15 flex items-center justify-center shrink-0">
+          <i data-lucide="calendar" class="w-5 h-5 text-brand-blue"></i>
+        </div>
+        <div>
+          <div class="text-white font-semibold">Incorporated in 1995</div>
+          <div class="text-slate-400 text-sm">Established corporate history</div>
+        </div>
+      </div>
+      <div class="glass rounded-2xl p-6 card-hover flex items-center gap-4">
+        <div class="h-11 w-11 rounded-xl bg-brand-teal/15 flex items-center justify-center shrink-0">
+          <i data-lucide="map-pin" class="w-5 h-5 text-brand-teal"></i>
+        </div>
+        <div>
+          <div class="text-white font-semibold">Registered in Mumbai</div>
+          <div class="text-slate-400 text-sm">Goregaon West, Maharashtra</div>
+        </div>
+      </div>
+      <div class="glass rounded-2xl p-6 card-hover flex items-center gap-4">
+        <div class="h-11 w-11 rounded-xl bg-brand-gold/15 flex items-center justify-center shrink-0">
+          <i data-lucide="briefcase" class="w-5 h-5 text-brand-gold"></i>
+        </div>
+        <div>
+          <div class="text-white font-semibold">Non&#8209;Banking Financial Company</div>
+          <div class="text-slate-400 text-sm">RBI regulated sector</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="compliance" class="py-24">
-<div class="max-w-6xl mx-auto px-6">
-<h2 class="text-5xl font-bold mb-8">Trust & Compliance</h2>
-<div class="grid md:grid-cols-4 gap-6">
-<div class="glass p-6 rounded-3xl">RBI Registered NBFC</div>
-<div class="glass p-6 rounded-3xl">CIN Verified</div>
-<div class="glass p-6 rounded-3xl">Governance Focused</div>
-<div class="glass p-6 rounded-3xl">Compliance Driven</div>
-</div>
-</div>
+<!-- ============================= TRUST & COMPLIANCE SECTION ============================= -->
+<section id="compliance" class="py-28 md:py-36 bg-white/[0.015] relative" aria-labelledby="compliance-heading">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="max-w-2xl mb-16 reveal-up">
+      <span class="text-brand-blue text-sm font-semibold tracking-wide uppercase">Trust &amp; Compliance</span>
+      <h2 id="compliance-heading" class="font-display font-800 text-4xl md:text-5xl text-white mt-4 leading-tight">
+        Built on regulatory integrity
+      </h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="reveal-up stagger-item glass rounded-3xl p-7 card-hover relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-blue to-brand-teal"></div>
+        <i data-lucide="landmark" class="w-8 h-8 text-brand-blue mb-5"></i>
+        <h3 class="font-display font-700 text-white text-lg mb-2">RBI Registered NBFC</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Operating under Certificate of Registration No. 13.01003 issued by the Reserve Bank of India.</p>
+      </div>
+      <div class="reveal-up stagger-item glass rounded-3xl p-7 card-hover relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-teal to-brand-gold"></div>
+        <i data-lucide="scale" class="w-8 h-8 text-brand-teal mb-5"></i>
+        <h3 class="font-display font-700 text-white text-lg mb-2">Governance&#8209;Led Management</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">A management approach centred on accountability, ethics and prudent decision&#8209;making.</p>
+      </div>
+      <div class="reveal-up stagger-item glass rounded-3xl p-7 card-hover relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-gold to-brand-blue"></div>
+        <i data-lucide="file-check-2" class="w-8 h-8 text-brand-gold mb-5"></i>
+        <h3 class="font-display font-700 text-white text-lg mb-2">Transparent Disclosures</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">Statutory policies published and accessible to every stakeholder at all times.</p>
+      </div>
+      <div class="reveal-up stagger-item glass rounded-3xl p-7 card-hover relative overflow-hidden">
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-blue via-brand-teal to-brand-gold"></div>
+        <i data-lucide="life-buoy" class="w-8 h-8 text-brand-blue mb-5"></i>
+        <h3 class="font-display font-700 text-white text-lg mb-2">Grievance Redressal</h3>
+        <p class="text-slate-400 text-sm leading-relaxed">A dedicated grievance officer and defined escalation framework for every concern.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="py-24">
-<div class="max-w-6xl mx-auto px-6">
-<h2 class="text-5xl font-bold mb-8">Regulatory Information</h2>
-<div class="glass rounded-3xl p-8 space-y-2">
-<p><strong>Company:</strong> Dalal Finserve Private Limited</p>
-<p><strong>CIN:</strong> U67120MH1995PTC087637</p>
-<p><strong>CoR:</strong> 13.01003</p>
-<p><strong>Grievance Officer:</strong> Heneel Gala (Director)</p>
-<p><strong>Email:</strong> dalalfinserve@gmail.com</p>
-<p><strong>Phone:</strong> +91 9820079358</p>
-<p><strong>Address:</strong> 802, Laburnum, Mahindra Gardens, SV Road, Goregaon West, Mumbai 400104</p>
-</div>
-</div>
+<!-- ============================= REGULATORY INFORMATION SECTION ============================= -->
+<section id="regulatory" class="py-28 md:py-36 relative" aria-labelledby="regulatory-heading">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="max-w-2xl mb-16 reveal-up">
+      <span class="text-brand-gold text-sm font-semibold tracking-wide uppercase">Regulatory Information</span>
+      <h2 id="regulatory-heading" class="font-display font-800 text-4xl md:text-5xl text-white mt-4 leading-tight">
+        Company &amp; registration details
+      </h2>
+    </div>
+
+    <div class="glass-strong rounded-3xl p-8 md:p-12 reveal-up">
+      <dl class="grid md:grid-cols-2 gap-x-12 gap-y-8">
+        <div class="flex gap-4">
+          <i data-lucide="building" class="w-5 h-5 text-brand-blue mt-1 shrink-0"></i>
+          <div>
+            <dt class="text-xs uppercase tracking-wide text-slate-500 mb-1">Company Name</dt>
+            <dd class="text-white font-medium">Dalal Finserve Private Limited</dd>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <i data-lucide="hash" class="w-5 h-5 text-brand-teal mt-1 shrink-0"></i>
+          <div>
+            <dt class="text-xs uppercase tracking-wide text-slate-500 mb-1">CIN</dt>
+            <dd class="text-white font-medium">U67120MH1995PTC087637</dd>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <i data-lucide="shield-check" class="w-5 h-5 text-brand-gold mt-1 shrink-0"></i>
+          <div>
+            <dt class="text-xs uppercase tracking-wide text-slate-500 mb-1">Certificate of Registration (CoR)</dt>
+            <dd class="text-white font-medium">13.01003</dd>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <i data-lucide="user-check" class="w-5 h-5 text-brand-blue mt-1 shrink-0"></i>
+          <div>
+            <dt class="text-xs uppercase tracking-wide text-slate-500 mb-1">Grievance Officer</dt>
+            <dd class="text-white font-medium">Heneel Gala, Director</dd>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <i data-lucide="mail" class="w-5 h-5 text-brand-teal mt-1 shrink-0"></i>
+          <div>
+            <dt class="text-xs uppercase tracking-wide text-slate-500 mb-1">Email</dt>
+            <dd><a class="text-white font-medium hover:text-brand-teal transition-colors" href="mailto:dalalfinserve@gmail.com">dalalfinserve@gmail.com</a></dd>
+          </div>
+        </div>
+        <div class="flex gap-4">
+          <i data-lucide="phone" class="w-5 h-5 text-brand-gold mt-1 shrink-0"></i>
+          <div>
+            <dt class="text-xs uppercase tracking-wide text-slate-500 mb-1">Phone</dt>
+            <dd><a class="text-white font-medium hover:text-brand-gold transition-colors" href="tel:+919820079358">+91 98200 79358</a></dd>
+          </div>
+        </div>
+        <div class="flex gap-4 md:col-span-2">
+          <i data-lucide="map-pin" class="w-5 h-5 text-brand-blue mt-1 shrink-0"></i>
+          <div>
+            <dt class="text-xs uppercase tracking-wide text-slate-500 mb-1">Registered Office</dt>
+            <dd class="text-white font-medium">802, Laburnum, Mahindra Gardens, SV Road, Goregaon West, Mumbai 400104</dd>
+          </div>
+        </div>
+      </dl>
+    </div>
+  </div>
 </section>
 
-<section class="py-24">
-<div class="max-w-6xl mx-auto px-6">
-<h2 class="text-5xl font-bold mb-8">Policies</h2>
-<div class="grid md:grid-cols-2 gap-4">
-<a class="glass p-6 rounded-2xl" href="DalalFinserve_Fair_Practices_Code.pdf">Fair Practices Code</a>
-<a class="glass p-6 rounded-2xl" href="DalalFinserve_Grievance_Redressal_Policy.pdf">Grievance Redressal Policy</a>
-<a class="glass p-6 rounded-2xl" href="DalalFinserve_Privacy_Policy.pdf">Privacy Policy</a>
-<a class="glass p-6 rounded-2xl" href="DalalFinserve_Terms_of_Use.pdf">Terms of Use</a>
-</div>
-</div>
+<!-- ============================= POLICIES & DISCLOSURES SECTION ============================= -->
+<section id="policies" class="py-28 md:py-36 bg-white/[0.015] relative" aria-labelledby="policies-heading">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="max-w-2xl mb-16 reveal-up">
+      <span class="text-brand-teal text-sm font-semibold tracking-wide uppercase">Policies &amp; Disclosures</span>
+      <h2 id="policies-heading" class="font-display font-800 text-4xl md:text-5xl text-white mt-4 leading-tight">
+        Statutory documents
+      </h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <a href="DalalFinserve_Fair_Practices_Code.pdf" target="_blank" rel="noopener" class="reveal-up stagger-item glass rounded-2xl p-6 card-hover flex items-start gap-4 group">
+        <i data-lucide="file-text" class="w-6 h-6 text-brand-blue shrink-0 mt-1"></i>
+        <div class="flex-1">
+          <h3 class="text-white font-semibold mb-1">Fair Practices Code</h3>
+          <span class="text-sm text-slate-400 inline-flex items-center gap-1 group-hover:text-brand-blue transition-colors">View PDF <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i></span>
+        </div>
+      </a>
+      <a href="DalalFinserve_Grievance_Redressal_Policy.pdf" target="_blank" rel="noopener" class="reveal-up stagger-item glass rounded-2xl p-6 card-hover flex items-start gap-4 group">
+        <i data-lucide="file-text" class="w-6 h-6 text-brand-teal shrink-0 mt-1"></i>
+        <div class="flex-1">
+          <h3 class="text-white font-semibold mb-1">Grievance Redressal Policy</h3>
+          <span class="text-sm text-slate-400 inline-flex items-center gap-1 group-hover:text-brand-teal transition-colors">View PDF <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i></span>
+        </div>
+      </a>
+      <a href="DalalFinserve_KYC_AML_Policy.pdf" target="_blank" rel="noopener" class="reveal-up stagger-item glass rounded-2xl p-6 card-hover flex items-start gap-4 group">
+        <i data-lucide="file-text" class="w-6 h-6 text-brand-gold shrink-0 mt-1"></i>
+        <div class="flex-1">
+          <h3 class="text-white font-semibold mb-1">KYC / AML Policy</h3>
+          <span class="text-sm text-slate-400 inline-flex items-center gap-1 group-hover:text-brand-gold transition-colors">View PDF <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i></span>
+        </div>
+      </a>
+      <a href="DalalFinserve_Privacy_Policy.pdf" target="_blank" rel="noopener" class="reveal-up stagger-item glass rounded-2xl p-6 card-hover flex items-start gap-4 group">
+        <i data-lucide="file-text" class="w-6 h-6 text-brand-blue shrink-0 mt-1"></i>
+        <div class="flex-1">
+          <h3 class="text-white font-semibold mb-1">Privacy Policy</h3>
+          <span class="text-sm text-slate-400 inline-flex items-center gap-1 group-hover:text-brand-blue transition-colors">View PDF <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i></span>
+        </div>
+      </a>
+      <a href="DalalFinserve_Terms_of_Use.pdf" target="_blank" rel="noopener" class="reveal-up stagger-item glass rounded-2xl p-6 card-hover flex items-start gap-4 group">
+        <i data-lucide="file-text" class="w-6 h-6 text-brand-teal shrink-0 mt-1"></i>
+        <div class="flex-1">
+          <h3 class="text-white font-semibold mb-1">Terms of Use</h3>
+          <span class="text-sm text-slate-400 inline-flex items-center gap-1 group-hover:text-brand-teal transition-colors">View PDF <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i></span>
+        </div>
+      </a>
+    </div>
+  </div>
 </section>
 
-<section id="contact" class="py-24">
-<div class="max-w-6xl mx-auto px-6">
-<h2 class="text-5xl font-bold mb-8">Contact</h2>
-<div class="glass rounded-3xl p-8">
-<p>Email: dalalfinserve@gmail.com</p>
-<p>Phone: +91 9820079358</p>
-</div>
-</div>
+<!-- ============================= CONTACT SECTION ============================= -->
+<section id="contact" class="py-28 md:py-36 relative" aria-labelledby="contact-heading">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="max-w-2xl mb-16 reveal-up">
+      <span class="text-brand-blue text-sm font-semibold tracking-wide uppercase">Contact</span>
+      <h2 id="contact-heading" class="font-display font-800 text-4xl md:text-5xl text-white mt-4 leading-tight">
+        Let&rsquo;s start a conversation
+      </h2>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-8 items-stretch">
+      <div class="grid sm:grid-cols-2 gap-5 reveal-up">
+        <a href="mailto:dalalfinserve@gmail.com" class="glass rounded-2xl p-6 card-hover flex flex-col gap-3">
+          <div class="h-11 w-11 rounded-xl bg-brand-blue/15 flex items-center justify-center">
+            <i data-lucide="mail" class="w-5 h-5 text-brand-blue"></i>
+          </div>
+          <div>
+            <div class="text-white font-semibold">Email</div>
+            <div class="text-slate-400 text-sm break-all">dalalfinserve@gmail.com</div>
+          </div>
+        </a>
+        <a href="tel:+919820079358" class="glass rounded-2xl p-6 card-hover flex flex-col gap-3">
+          <div class="h-11 w-11 rounded-xl bg-brand-teal/15 flex items-center justify-center">
+            <i data-lucide="phone" class="w-5 h-5 text-brand-teal"></i>
+          </div>
+          <div>
+            <div class="text-white font-semibold">Phone</div>
+            <div class="text-slate-400 text-sm">+91 98200 79358</div>
+          </div>
+        </a>
+        <div class="glass rounded-2xl p-6 sm:col-span-2 flex flex-col gap-3">
+          <div class="h-11 w-11 rounded-xl bg-brand-gold/15 flex items-center justify-center">
+            <i data-lucide="map-pin" class="w-5 h-5 text-brand-gold"></i>
+          </div>
+          <div>
+            <div class="text-white font-semibold">Registered Office</div>
+            <div class="text-slate-400 text-sm">802, Laburnum, Mahindra Gardens, SV Road, Goregaon West, Mumbai 400104</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal-up rounded-2xl overflow-hidden glass min-h-[280px]">
+        <iframe
+          title="Map showing Dalal Finserve registered office in Goregaon West, Mumbai"
+          class="w-full h-full min-h-[280px] grayscale contrast-125 opacity-90"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Laburnum+Mahindra+Gardens+SV+Road+Goregaon+West+Mumbai+400104&output=embed">
+        </iframe>
+      </div>
+    </div>
+  </div>
 </section>
 
-<footer class="border-t border-white/10 py-10 text-center text-slate-400">
-<p>Dalal Finserve Private Limited | CIN: U67120MH1995PTC087637</p>
-<p>RBI Registered NBFC | CoR No. 13.01003</p>
-<p>Registration with RBI does not imply RBI approval or guarantee of company obligations.</p>
+</main>
+
+<!-- ============================= FOOTER ============================= -->
+<footer class="relative border-t border-white/10 pt-20 pb-8 overflow-hidden" aria-label="Site footer">
+  <div aria-hidden="true" class="pointer-events-none absolute -bottom-32 left-1/2 -translate-x-1/2 w-[40rem] h-[24rem] bg-gradient-to-t from-brand-blue/15 to-transparent blur-[100px]"></div>
+
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 relative">
+    <div class="grid lg:grid-cols-12 gap-12 pb-14 border-b border-white/10">
+      <!-- Brand + newsletter -->
+      <div class="lg:col-span-5">
+        <div class="flex items-center gap-2.5 mb-5">
+          <span class="h-9 w-9 rounded-xl bg-gradient-to-br from-brand-blue to-brand-teal flex items-center justify-center font-display font-800 text-sm">DF</span>
+          <span class="font-display font-700 text-white text-base">Dalal Finserve Private Limited</span>
+        </div>
+        <p class="text-slate-400 text-sm leading-relaxed max-w-sm mb-6">
+          An RBI registered Non&#8209;Banking Financial Company committed to governance, transparency and responsible growth.
+        </p>
+
+        <form id="newsletterForm" class="flex gap-2 max-w-sm" novalidate>
+          <label for="newsletterEmail" class="sr-only">Email address</label>
+          <input id="newsletterEmail" type="email" required placeholder="you@email.com"
+            class="flex-1 min-w-0 glass rounded-full px-4 py-2.5 text-sm text-white placeholder-slate-500 focus:ring-2 focus:ring-brand-blue outline-none">
+          <button type="submit" class="btn-primary text-white text-sm font-semibold px-5 py-2.5 rounded-full shrink-0">Subscribe</button>
+        </form>
+        <p id="newsletterMsg" class="text-xs text-brand-teal mt-2 hidden" role="status"></p>
+      </div>
+
+      <!-- Quick links -->
+      <div class="lg:col-span-3">
+        <h3 class="text-white font-semibold text-sm mb-4">Quick Links</h3>
+        <ul class="space-y-3 text-sm text-slate-400">
+          <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
+          <li><a href="#compliance" class="hover:text-white transition-colors">Trust &amp; Compliance</a></li>
+          <li><a href="#regulatory" class="hover:text-white transition-colors">Regulatory Info</a></li>
+          <li><a href="#policies" class="hover:text-white transition-colors">Policies</a></li>
+          <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Policies -->
+      <div class="lg:col-span-2">
+        <h3 class="text-white font-semibold text-sm mb-4">Documents</h3>
+        <ul class="space-y-3 text-sm text-slate-400">
+          <li><a href="DalalFinserve_Fair_Practices_Code.pdf" target="_blank" rel="noopener" class="hover:text-white transition-colors">Fair Practices Code</a></li>
+          <li><a href="DalalFinserve_Grievance_Redressal_Policy.pdf" target="_blank" rel="noopener" class="hover:text-white transition-colors">Grievance Redressal</a></li>
+          <li><a href="DalalFinserve_KYC_AML_Policy.pdf" target="_blank" rel="noopener" class="hover:text-white transition-colors">KYC / AML Policy</a></li>
+          <li><a href="DalalFinserve_Privacy_Policy.pdf" target="_blank" rel="noopener" class="hover:text-white transition-colors">Privacy Policy</a></li>
+          <li><a href="DalalFinserve_Terms_of_Use.pdf" target="_blank" rel="noopener" class="hover:text-white transition-colors">Terms of Use</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="lg:col-span-2">
+        <h3 class="text-white font-semibold text-sm mb-4">Contact</h3>
+        <ul class="space-y-3 text-sm text-slate-400">
+          <li><a href="mailto:dalalfinserve@gmail.com" class="hover:text-white transition-colors break-all">dalalfinserve@gmail.com</a></li>
+          <li><a href="tel:+919820079358" class="hover:text-white transition-colors">+91 98200 79358</a></li>
+          <li>Goregaon West, Mumbai 400104</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Legal / mandatory disclaimer -->
+    <div class="pt-8 grid md:grid-cols-2 gap-4 items-center text-xs text-slate-500">
+      <p class="max-w-xl leading-relaxed">
+        Registration with RBI does not imply RBI approval or guarantee of the company&rsquo;s obligations.
+      </p>
+      <p class="md:text-right">
+        &copy; <span id="year"></span> Dalal Finserve Private Limited &middot; CIN: U67120MH1995PTC087637 &middot; All rights reserved.
+      </p>
+    </div>
+  </div>
 </footer>
+
+<!-- ============================= SCRIPTS ============================= -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // ---- Lucide icons ----
+    if (window.lucide) lucide.createIcons();
+
+    // ---- Footer year ----
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ---- Lenis smooth scroll ----
+    var lenis = null;
+    if (window.Lenis && !reduceMotion) {
+      lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+      requestAnimationFrame(raf);
+      if (window.gsap && window.gsap.ticker) {
+        gsap.ticker.add(function (time) { lenis.raf(time * 1000); });
+      }
+    }
+
+    // ---- Anchor scroll (works with or without Lenis) ----
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var id = a.getAttribute('href');
+        if (id.length < 2) return;
+        var target = document.querySelector(id);
+        if (!target) return;
+        e.preventDefault();
+        closeMobileMenu();
+        if (lenis) { lenis.scrollTo(target, { offset: -80 }); }
+        else { target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' }); }
+      });
+    });
+
+    // ---- Navbar scroll state ----
+    var navbar = document.getElementById('navbar');
+    function onScroll() {
+      if (window.scrollY > 20) {
+        navbar.classList.add('bg-ink/70', 'backdrop-blur-xl', 'border-b', 'border-white/10', 'shadow-premium');
+      } else {
+        navbar.classList.remove('bg-ink/70', 'backdrop-blur-xl', 'border-b', 'border-white/10', 'shadow-premium');
+      }
+    }
+    document.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // ---- Mobile menu ----
+    var menuBtn = document.getElementById('menuBtn');
+    var mobileMenu = document.getElementById('mobileMenu');
+    var iconOpen = document.getElementById('menuIconOpen');
+    var iconClose = document.getElementById('menuIconClose');
+    function closeMobileMenu() {
+      mobileMenu.classList.add('hidden');
+      menuBtn.setAttribute('aria-expanded', 'false');
+      iconOpen.classList.remove('hidden');
+      iconClose.classList.add('hidden');
+    }
+    menuBtn.addEventListener('click', function () {
+      var isOpen = !mobileMenu.classList.contains('hidden');
+      if (isOpen) { closeMobileMenu(); }
+      else {
+        mobileMenu.classList.remove('hidden');
+        menuBtn.setAttribute('aria-expanded', 'true');
+        iconOpen.classList.add('hidden');
+        iconClose.classList.remove('hidden');
+      }
+    });
+
+    // ---- Nav underline hover style (added via CSS class using JS-free pseudo, fallback here) ----
+    var style = document.createElement('style');
+    style.textContent = '.nav-link::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:linear-gradient(90deg,#3b82f6,#14b8a6);transition:width .3s ease}.nav-link:hover::after{width:100%}.nav-link{color:#cbd5e1}.nav-link:hover{color:#fff}';
+    document.head.appendChild(style);
+
+    // ---- GSAP reveal + counters + chart draw ----
+    if (window.gsap) {
+      gsap.registerPlugin(ScrollTrigger);
+
+      // Hero entrance sequence
+      gsap.timeline({ defaults: { ease: 'power3.out' } })
+        .from('.hero-badge', { opacity: 0, y: 20, duration: 0.6 })
+        .from('.hero-title', { opacity: 0, y: 30, duration: 0.8 }, '-=0.35')
+        .from('.hero-sub', { opacity: 0, y: 24, duration: 0.7 }, '-=0.5')
+        .from('.hero-cta', { opacity: 0, y: 20, duration: 0.6 }, '-=0.45')
+        .from('.hero-stats', { opacity: 0, y: 20, duration: 0.6 }, '-=0.4')
+        .from('.hero-visual', { opacity: 0, scale: 0.94, duration: 0.9 }, '-=0.9');
+
+      // Section fade-ups
+      gsap.utils.toArray('.reveal-up').forEach(function (el) {
+        gsap.from(el, {
+          opacity: 0, y: 40, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 85%' },
+        });
+      });
+
+      // Staggered card groups
+      var groups = {};
+      gsap.utils.toArray('.stagger-item').forEach(function (el) {
+        var parent = el.closest('section');
+        var key = parent ? parent.id : 'default';
+        groups[key] = groups[key] || [];
+        groups[key].push(el);
+      });
+      Object.keys(groups).forEach(function (key) {
+        gsap.from(groups[key], {
+          opacity: 0, y: 30, duration: 0.6, stagger: 0.12, ease: 'power3.out',
+          scrollTrigger: { trigger: groups[key][0], start: 'top 88%' },
+        });
+      });
+
+      // Animated chart line draw
+      var chartLine = document.getElementById('chartLine');
+      if (chartLine) {
+        var len = chartLine.getTotalLength();
+        chartLine.style.strokeDasharray = len;
+        chartLine.style.strokeDashoffset = len;
+        gsap.to(chartLine, { strokeDashoffset: 0, duration: 1.8, ease: 'power2.out', delay: 0.6 });
+      }
+
+      // Counters
+      document.querySelectorAll('.counter').forEach(function (el) {
+        var target = parseFloat(el.getAttribute('data-target'));
+        var obj = { val: 0 };
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 90%',
+          once: true,
+          onEnter: function () {
+            gsap.to(obj, {
+              val: target, duration: 1.6, ease: 'power2.out',
+              onUpdate: function () { el.textContent = Math.round(obj.val); },
+            });
+          },
+        });
+      });
+
+      // Subtle mouse parallax on hero blobs (desktop, fine pointer only)
+      if (window.matchMedia('(pointer:fine)').matches && !reduceMotion) {
+        document.addEventListener('mousemove', function (e) {
+          var x = (e.clientX / window.innerWidth - 0.5) * 20;
+          var y = (e.clientY / window.innerHeight - 0.5) * 20;
+          gsap.to('.hero-visual', { x: x, y: y, duration: 1, ease: 'power2.out' });
+        });
+      }
+
+      // Magnetic buttons
+      if (window.matchMedia('(pointer:fine)').matches && !reduceMotion) {
+        document.querySelectorAll('.magnetic').forEach(function (btn) {
+          btn.addEventListener('mousemove', function (e) {
+            var rect = btn.getBoundingClientRect();
+            var mx = e.clientX - rect.left - rect.width / 2;
+            var my = e.clientY - rect.top - rect.height / 2;
+            gsap.to(btn, { x: mx * 0.25, y: my * 0.35, duration: 0.4, ease: 'power2.out' });
+          });
+          btn.addEventListener('mouseleave', function () {
+            gsap.to(btn, { x: 0, y: 0, duration: 0.5, ease: 'elastic.out(1,0.4)' });
+          });
+        });
+      }
+    }
+
+    // ---- Newsletter (client-side only, no backend wired up) ----
+    var newsletterForm = document.getElementById('newsletterForm');
+    var newsletterMsg = document.getElementById('newsletterMsg');
+    newsletterForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      newsletterMsg.textContent = 'Thanks for subscribing — we will keep you updated.';
+      newsletterMsg.classList.remove('hidden');
+      newsletterForm.reset();
+    });
+  });
+</script>
 </body>
 </html>
