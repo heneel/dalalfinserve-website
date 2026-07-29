@@ -107,6 +107,10 @@
   /* Marquee track */
   .marquee-track { display: flex; width: max-content; }
 
+  /* Policies accordion */
+  .policy-panel { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
+  .policy-toggle:hover { background: rgba(255,255,255,0.03); }
+
   /* Custom scrollbar */
   ::-webkit-scrollbar { width: 10px; }
   ::-webkit-scrollbar-track { background: #050816; }
@@ -149,6 +153,7 @@
         <div class="hidden lg:flex items-center gap-8 text-sm font-medium text-slate-300">
           <a href="#about" class="nav-link relative py-2">About</a>
           <a href="#compliance" class="nav-link relative py-2">Compliance</a>
+          <a href="#complaints" class="nav-link relative py-2">Complaints</a>
           <a href="#regulatory" class="nav-link relative py-2">Regulatory Info</a>
           <a href="#policies" class="nav-link relative py-2">Policies</a>
         </div>
@@ -171,6 +176,7 @@
     <div id="mobileMenu" class="lg:hidden hidden glass-strong mx-4 mt-2 rounded-2xl px-6 py-6 space-y-4 text-slate-200">
       <a href="#about" class="block py-1">About</a>
       <a href="#compliance" class="block py-1">Compliance</a>
+      <a href="#complaints" class="block py-1">Complaints</a>
       <a href="#regulatory" class="block py-1">Regulatory Info</a>
       <a href="#policies" class="block py-1">Policies</a>
       <a href="#contact" class="btn-primary block text-center text-white font-semibold px-5 py-3 rounded-full mt-2">Get in Touch</a>
@@ -402,6 +408,82 @@
   </div>
 </section>
 
+<!-- ============================= COMPLAINTS FLOWCHART SECTION ============================= -->
+<section id="complaints" class="py-28 md:py-36 bg-white/[0.015] relative" aria-labelledby="complaints-heading">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="max-w-3xl mb-6 reveal-up">
+      <span class="text-brand-gold text-sm font-semibold tracking-wide uppercase">Complaints</span>
+      <h2 id="complaints-heading" class="font-display font-800 text-4xl md:text-5xl text-white mt-4 leading-tight">
+        How to lodge a complaint
+      </h2>
+    </div>
+    <p class="reveal-up max-w-2xl text-slate-500 text-xs leading-relaxed mb-16">
+      Displayed in compliance with the Hon&rsquo;ble High Court of Delhi&rsquo;s order in W.P.(C) 16659/2022 &amp; CM APPL. 52510/2022, and RBI Circular COMP/CI/CEP/O/2026/0008 on disclosure of the complaint escalation procedure on the websites of Regulated Entities.
+    </p>
+
+    <!-- Flowchart: stacked on mobile, horizontal with connectors on desktop -->
+    <div class="flex flex-col lg:flex-row items-stretch gap-4 lg:gap-0">
+
+      <!-- Step 1 -->
+      <div class="reveal-up stagger-item glass rounded-3xl p-7 card-hover flex-1 relative">
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-blue to-brand-teal rounded-t-3xl"></div>
+        <span class="inline-flex h-8 w-8 rounded-full bg-brand-blue/15 text-brand-blue font-display font-800 text-sm items-center justify-center mb-5">1</span>
+        <i data-lucide="mail" class="w-7 h-7 text-brand-blue mb-4"></i>
+        <h3 class="font-display font-700 text-white text-lg mb-2">Lodge your complaint</h3>
+        <p class="text-slate-400 text-sm leading-relaxed mb-4">Reach out to the Company directly by email, phone or written communication.</p>
+        <div class="text-sm space-y-1">
+          <a href="mailto:dalalfinserve@gmail.com" class="block text-slate-300 hover:text-brand-blue transition-colors break-all">dalalfinserve@gmail.com</a>
+          <a href="tel:+919820079355" class="block text-slate-300 hover:text-brand-blue transition-colors">+91 98200 79355</a>
+        </div>
+      </div>
+
+      <!-- Connector 1→2 -->
+      <div class="flex items-center justify-center lg:w-16 shrink-0" aria-hidden="true">
+        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-600 lg:hidden"></i>
+        <i data-lucide="chevron-right" class="w-5 h-5 text-slate-600 hidden lg:block"></i>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="reveal-up stagger-item glass rounded-3xl p-7 card-hover flex-1 relative">
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-teal to-brand-gold rounded-t-3xl"></div>
+        <span class="inline-flex h-8 w-8 rounded-full bg-brand-teal/15 text-brand-teal font-display font-800 text-sm items-center justify-center mb-5">2</span>
+        <i data-lucide="user-check" class="w-7 h-7 text-brand-teal mb-4"></i>
+        <h3 class="font-display font-700 text-white text-lg mb-2">Escalate to the Nodal / Grievance Officer</h3>
+        <p class="text-slate-400 text-sm leading-relaxed mb-4">If unresolved at first contact, your complaint is reviewed by the designated Grievance Officer.</p>
+        <div class="text-sm space-y-1">
+          <div class="text-slate-300 font-medium">Heneel Gala &middot; Director</div>
+          <a href="mailto:dalalfinserve@gmail.com" class="block text-slate-300 hover:text-brand-teal transition-colors break-all">dalalfinserve@gmail.com</a>
+          <a href="tel:+919820079358" class="block text-slate-300 hover:text-brand-teal transition-colors">+91 98200 79358</a>
+        </div>
+      </div>
+
+      <!-- Connector 2→3 -->
+      <div class="flex items-center justify-center lg:w-16 shrink-0" aria-hidden="true">
+        <i data-lucide="chevron-down" class="w-5 h-5 text-slate-600 lg:hidden"></i>
+        <i data-lucide="chevron-right" class="w-5 h-5 text-slate-600 hidden lg:block"></i>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="reveal-up stagger-item glass rounded-3xl p-7 card-hover flex-1 relative">
+        <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-gold to-brand-blue rounded-t-3xl"></div>
+        <span class="inline-flex h-8 w-8 rounded-full bg-brand-gold/15 text-brand-gold font-display font-800 text-sm items-center justify-center mb-5">3</span>
+        <i data-lucide="landmark" class="w-7 h-7 text-brand-gold mb-4"></i>
+        <h3 class="font-display font-700 text-white text-lg mb-2">Escalate to the RBI Ombudsman</h3>
+        <p class="text-slate-400 text-sm leading-relaxed mb-4">If not resolved within 30 days, or you are unsatisfied with the response, escalate under the RBI Integrated Ombudsman Scheme, 2021.</p>
+        <div class="text-sm space-y-1">
+          <div class="text-slate-300">Complaint Management System</div>
+          <div class="text-slate-300 font-medium">cms.rbi.org.in</div>
+        </div>
+      </div>
+    </div>
+
+    <p class="reveal-up text-slate-500 text-xs leading-relaxed mt-10 max-w-2xl">
+      For full details of the process, refer to our
+      <a href="#policy-grievance-redressal" class="text-brand-teal hover:underline">Grievance Redressal Policy</a>.
+    </p>
+  </div>
+</section>
+
 <!-- ============================= REGULATORY INFORMATION SECTION ============================= -->
 <section id="regulatory" class="py-28 md:py-36 relative" aria-labelledby="regulatory-heading">
   <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -476,44 +558,101 @@
       <h2 id="policies-heading" class="font-display font-800 text-4xl md:text-5xl text-white mt-4 leading-tight">
         Statutory documents
       </h2>
+      <p class="text-slate-400 mt-4">Read our statutory policies directly below, or download the original PDF from within each section.</p>
     </div>
 
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <a href="DalalFinserve_Fair_Practices_Code.pdf" target="_blank" rel="noopener" class="reveal-up stagger-item glass rounded-2xl p-6 card-hover flex items-start gap-4 group">
-        <i data-lucide="file-text" class="w-6 h-6 text-brand-blue shrink-0 mt-1"></i>
-        <div class="flex-1">
-          <h3 class="text-white font-semibold mb-1">Fair Practices Code</h3>
-          <span class="text-sm text-slate-400 inline-flex items-center gap-1 group-hover:text-brand-blue transition-colors">View PDF <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i></span>
+    <div class="max-w-4xl space-y-4">
+
+      <!-- Fair Practices Code -->
+      <div id="policy-fair-practices" class="reveal-up stagger-item glass rounded-2xl overflow-hidden">
+        <button type="button" class="policy-toggle w-full flex items-center gap-4 p-6 text-left" aria-expanded="false" aria-controls="panel-fair-practices">
+          <i data-lucide="file-text" class="w-5 h-5 text-brand-blue shrink-0"></i>
+          <h3 class="flex-1 text-white font-semibold">Fair Practices Code</h3>
+          <i data-lucide="chevron-down" class="policy-chevron w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300"></i>
+        </button>
+        <div id="panel-fair-practices" class="policy-panel" role="region" aria-labelledby="policy-fair-practices" style="max-height:0;">
+          <div class="px-6 pb-6 text-slate-400 text-sm leading-relaxed space-y-3">
+            <p>Dalal Finserve Private Limited (CIN: U67120MH1995PTC087637), RBI Registered NBFC (CoR No. 13.01003), is committed to conducting its business in accordance with applicable laws, RBI directions and fair practices.</p>
+            <dl class="space-y-2">
+              <div><dt class="inline font-semibold text-slate-300">Objective: </dt><dd class="inline">To promote transparency, fairness and ethical conduct in all dealings.</dd></div>
+              <div><dt class="inline font-semibold text-slate-300">Customer Communication: </dt><dd class="inline">Information shall be communicated clearly and transparently.</dd></div>
+              <div><dt class="inline font-semibold text-slate-300">Confidentiality: </dt><dd class="inline">Customer information shall be protected and used only for lawful purposes.</dd></div>
+              <div><dt class="inline font-semibold text-slate-300">Grievance Redressal: </dt><dd class="inline">Complaints may be addressed to the Grievance Officer.</dd></div>
+              <div><dt class="inline font-semibold text-slate-300">Review: </dt><dd class="inline">This policy may be reviewed periodically by management and the Board.</dd></div>
+            </dl>
+            <a href="DalalFinserve_Fair_Practices_Code.pdf" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-brand-blue hover:underline pt-1">Download original PDF <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i></a>
+          </div>
         </div>
-      </a>
-      <a href="DalalFinserve_Grievance_Redressal_Policy.pdf" target="_blank" rel="noopener" class="reveal-up stagger-item glass rounded-2xl p-6 card-hover flex items-start gap-4 group">
-        <i data-lucide="file-text" class="w-6 h-6 text-brand-teal shrink-0 mt-1"></i>
-        <div class="flex-1">
-          <h3 class="text-white font-semibold mb-1">Grievance Redressal Policy</h3>
-          <span class="text-sm text-slate-400 inline-flex items-center gap-1 group-hover:text-brand-teal transition-colors">View PDF <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i></span>
+      </div>
+
+      <!-- Grievance Redressal Policy -->
+      <div id="policy-grievance-redressal" class="reveal-up stagger-item glass rounded-2xl overflow-hidden">
+        <button type="button" class="policy-toggle w-full flex items-center gap-4 p-6 text-left" aria-expanded="false" aria-controls="panel-grievance-redressal">
+          <i data-lucide="file-text" class="w-5 h-5 text-brand-teal shrink-0"></i>
+          <h3 class="flex-1 text-white font-semibold">Grievance Redressal Policy</h3>
+          <i data-lucide="chevron-down" class="policy-chevron w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300"></i>
+        </button>
+        <div id="panel-grievance-redressal" class="policy-panel" role="region" aria-labelledby="policy-grievance-redressal" style="max-height:0;">
+          <div class="px-6 pb-6 text-slate-400 text-sm leading-relaxed space-y-3">
+            <p><span class="font-semibold text-slate-300">Grievance Officer:</span> Heneel Gala, Director</p>
+            <p>Email: <a href="mailto:dalalfinserve@gmail.com" class="text-brand-teal hover:underline">dalalfinserve@gmail.com</a><br>Phone: <a href="tel:+919820079358" class="text-brand-teal hover:underline">+91 9820079358</a></p>
+            <p>Complaints may be submitted through email, phone or written communication. The Company shall endeavor to acknowledge and review complaints within a reasonable period.</p>
+            <a href="#complaints" class="inline-flex items-center gap-1.5 text-brand-teal hover:underline pt-1">View full complaint escalation flowchart <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></a><br>
+            <a href="DalalFinserve_Grievance_Redressal_Policy.pdf" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-brand-teal hover:underline">Download original PDF <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i></a>
+          </div>
         </div>
-      </a>
-      <a href="DalalFinserve_KYC_AML_Policy.pdf" target="_blank" rel="noopener" class="reveal-up stagger-item glass rounded-2xl p-6 card-hover flex items-start gap-4 group">
-        <i data-lucide="file-text" class="w-6 h-6 text-brand-gold shrink-0 mt-1"></i>
-        <div class="flex-1">
-          <h3 class="text-white font-semibold mb-1">KYC / AML Policy</h3>
-          <span class="text-sm text-slate-400 inline-flex items-center gap-1 group-hover:text-brand-gold transition-colors">View PDF <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i></span>
+      </div>
+
+      <!-- KYC / AML Policy -->
+      <div id="policy-kyc-aml" class="reveal-up stagger-item glass rounded-2xl overflow-hidden">
+        <button type="button" class="policy-toggle w-full flex items-center gap-4 p-6 text-left" aria-expanded="false" aria-controls="panel-kyc-aml">
+          <i data-lucide="file-text" class="w-5 h-5 text-brand-gold shrink-0"></i>
+          <h3 class="flex-1 text-white font-semibold">KYC / AML Policy</h3>
+          <i data-lucide="chevron-down" class="policy-chevron w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300"></i>
+        </button>
+        <div id="panel-kyc-aml" class="policy-panel" role="region" aria-labelledby="policy-kyc-aml" style="max-height:0;">
+          <div class="px-6 pb-6 text-slate-400 text-sm leading-relaxed space-y-3">
+            <p>Dalal Finserve Private Limited is committed to complying with applicable KYC and AML requirements.</p>
+            <p>The Company may undertake customer due diligence and identity verification where required by law.</p>
+            <a href="DalalFinserve_KYC_AML_Policy.pdf" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-brand-gold hover:underline pt-1">Download original PDF <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i></a>
+          </div>
         </div>
-      </a>
-      <a href="DalalFinserve_Privacy_Policy.pdf" target="_blank" rel="noopener" class="reveal-up stagger-item glass rounded-2xl p-6 card-hover flex items-start gap-4 group">
-        <i data-lucide="file-text" class="w-6 h-6 text-brand-blue shrink-0 mt-1"></i>
-        <div class="flex-1">
-          <h3 class="text-white font-semibold mb-1">Privacy Policy</h3>
-          <span class="text-sm text-slate-400 inline-flex items-center gap-1 group-hover:text-brand-blue transition-colors">View PDF <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i></span>
+      </div>
+
+      <!-- Privacy Policy -->
+      <div id="policy-privacy" class="reveal-up stagger-item glass rounded-2xl overflow-hidden">
+        <button type="button" class="policy-toggle w-full flex items-center gap-4 p-6 text-left" aria-expanded="false" aria-controls="panel-privacy">
+          <i data-lucide="file-text" class="w-5 h-5 text-brand-blue shrink-0"></i>
+          <h3 class="flex-1 text-white font-semibold">Privacy Policy</h3>
+          <i data-lucide="chevron-down" class="policy-chevron w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300"></i>
+        </button>
+        <div id="panel-privacy" class="policy-panel" role="region" aria-labelledby="policy-privacy" style="max-height:0;">
+          <div class="px-6 pb-6 text-slate-400 text-sm leading-relaxed space-y-3">
+            <p>Dalal Finserve Private Limited respects the privacy of visitors and users.</p>
+            <p>Information submitted through the website may be used for communication, compliance and operational purposes.</p>
+            <p>Reasonable safeguards shall be maintained to protect information.</p>
+            <a href="DalalFinserve_Privacy_Policy.pdf" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-brand-blue hover:underline pt-1">Download original PDF <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i></a>
+          </div>
         </div>
-      </a>
-      <a href="DalalFinserve_Terms_of_Use.pdf" target="_blank" rel="noopener" class="reveal-up stagger-item glass rounded-2xl p-6 card-hover flex items-start gap-4 group">
-        <i data-lucide="file-text" class="w-6 h-6 text-brand-teal shrink-0 mt-1"></i>
-        <div class="flex-1">
-          <h3 class="text-white font-semibold mb-1">Terms of Use</h3>
-          <span class="text-sm text-slate-400 inline-flex items-center gap-1 group-hover:text-brand-teal transition-colors">View PDF <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i></span>
+      </div>
+
+      <!-- Terms of Use -->
+      <div id="policy-terms" class="reveal-up stagger-item glass rounded-2xl overflow-hidden">
+        <button type="button" class="policy-toggle w-full flex items-center gap-4 p-6 text-left" aria-expanded="false" aria-controls="panel-terms">
+          <i data-lucide="file-text" class="w-5 h-5 text-brand-teal shrink-0"></i>
+          <h3 class="flex-1 text-white font-semibold">Terms of Use</h3>
+          <i data-lucide="chevron-down" class="policy-chevron w-5 h-5 text-slate-400 shrink-0 transition-transform duration-300"></i>
+        </button>
+        <div id="panel-terms" class="policy-panel" role="region" aria-labelledby="policy-terms" style="max-height:0;">
+          <div class="px-6 pb-6 text-slate-400 text-sm leading-relaxed space-y-3">
+            <p>Use of this website is subject to applicable laws.</p>
+            <p>Information provided is for general informational purposes only and may change without notice.</p>
+            <p>Jurisdiction shall be Mumbai, Maharashtra, India.</p>
+            <a href="DalalFinserve_Terms_of_Use.pdf" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-brand-teal hover:underline pt-1">Download original PDF <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i></a>
+          </div>
         </div>
-      </a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -605,6 +744,7 @@
         <ul class="space-y-3 text-sm text-slate-400">
           <li><a href="#about" class="hover:text-white transition-colors">About Us</a></li>
           <li><a href="#compliance" class="hover:text-white transition-colors">Trust &amp; Compliance</a></li>
+          <li><a href="#complaints" class="hover:text-white transition-colors">Complaints</a></li>
           <li><a href="#regulatory" class="hover:text-white transition-colors">Regulatory Info</a></li>
           <li><a href="#policies" class="hover:text-white transition-colors">Policies</a></li>
           <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
@@ -615,11 +755,11 @@
       <div class="lg:col-span-2">
         <h3 class="text-white font-semibold text-sm mb-4">Documents</h3>
         <ul class="space-y-3 text-sm text-slate-400">
-          <li><a href="DalalFinserve_Fair_Practices_Code.pdf" target="_blank" rel="noopener" class="hover:text-white transition-colors">Fair Practices Code</a></li>
-          <li><a href="DalalFinserve_Grievance_Redressal_Policy.pdf" target="_blank" rel="noopener" class="hover:text-white transition-colors">Grievance Redressal</a></li>
-          <li><a href="DalalFinserve_KYC_AML_Policy.pdf" target="_blank" rel="noopener" class="hover:text-white transition-colors">KYC / AML Policy</a></li>
-          <li><a href="DalalFinserve_Privacy_Policy.pdf" target="_blank" rel="noopener" class="hover:text-white transition-colors">Privacy Policy</a></li>
-          <li><a href="DalalFinserve_Terms_of_Use.pdf" target="_blank" rel="noopener" class="hover:text-white transition-colors">Terms of Use</a></li>
+          <li><a href="#policy-fair-practices" class="hover:text-white transition-colors">Fair Practices Code</a></li>
+          <li><a href="#policy-grievance-redressal" class="hover:text-white transition-colors">Grievance Redressal</a></li>
+          <li><a href="#policy-kyc-aml" class="hover:text-white transition-colors">KYC / AML Policy</a></li>
+          <li><a href="#policy-privacy" class="hover:text-white transition-colors">Privacy Policy</a></li>
+          <li><a href="#policy-terms" class="hover:text-white transition-colors">Terms of Use</a></li>
         </ul>
       </div>
 
@@ -679,8 +819,37 @@
         closeMobileMenu();
         if (lenis) { lenis.scrollTo(target, { offset: -80 }); }
         else { target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' }); }
+        var toggleBtn = target.querySelector('.policy-toggle');
+        if (toggleBtn && toggleBtn.getAttribute('aria-expanded') === 'false') {
+          setTimeout(function () { toggleBtn.click(); }, 350);
+        }
       });
     });
+
+    // ---- Policies accordion ----
+    document.querySelectorAll('.policy-toggle').forEach(function (btn) {
+      var panel = document.getElementById(btn.getAttribute('aria-controls'));
+      var chevron = btn.querySelector('.policy-chevron');
+      btn.addEventListener('click', function () {
+        var isOpen = btn.getAttribute('aria-expanded') === 'true';
+        if (isOpen) {
+          panel.style.maxHeight = '0px';
+          btn.setAttribute('aria-expanded', 'false');
+          chevron.style.transform = 'rotate(0deg)';
+        } else {
+          panel.style.maxHeight = panel.scrollHeight + 'px';
+          btn.setAttribute('aria-expanded', 'true');
+          chevron.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+
+    // Auto-open a policy if the page is loaded directly with its hash
+    if (window.location.hash) {
+      var deepLinkTarget = document.querySelector(window.location.hash);
+      var deepLinkToggle = deepLinkTarget && deepLinkTarget.querySelector('.policy-toggle');
+      if (deepLinkToggle) deepLinkToggle.click();
+    }
 
     // ---- Navbar scroll state ----
     var navbar = document.getElementById('navbar');
